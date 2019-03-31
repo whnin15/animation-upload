@@ -19,15 +19,20 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+
     const message = document.getElementById('message');
     const picker = document.getElementById('file-picker');
+
     document.getElementById('upload-form').addEventListener('submit', (e) => {
+
       message.innerText = '';
+
       if(!picker.files.length) {
         message.innerText = 'Please select an image to upload.';
         e.preventDefault();
         return false;
       }
     });
+
   });
 </script>
