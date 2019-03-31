@@ -1,10 +1,11 @@
 <h1>Looking Glass Film Festival</h1>
 
 <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data">
-  <div> Your Name: </div> <div class="upload-container"><input id="name" type="text" name="name"></div>
-  <div> CodeName (on the blue tape on USB): </div> <div class="upload-container"><input id="codename" type="text" name="codename"></div>
-  <div> Name you want me to display on screen: </div> <div class="upload-container"><input id="displayname" type="text" name="displayname"></div>
-  <div> Your animation (.lgp) to upload: </div> <div class="upload-container"><input id="file-picker" type="file" name="image"></div>
+  <h2>Select the looking glass file (.lgp) to upload:</h2>
+  <div class="upload-container"><input id="name" type="text" name="name"></div>
+  <div class="upload-container"><input id="codename" type="text" name="codename"></div>
+  <div class="upload-container"><input id="displayname" type="text" name="displayname"></div>
+  <div class="upload-container"><input id="file-picker" type="file" name="image"></div>
   <div><input type="submit" value="Upload File"></div>
 </form>
 
@@ -21,7 +22,7 @@
       message.innerText = '';
 
       if(!picker.files.length) {
-        message.innerText = 'Select the looking glass file (.lgp) to upload:';
+        message.innerText = 'Select the looking glass file (.lgp) to upload.';
         e.preventDefault();
         return false;
       }
