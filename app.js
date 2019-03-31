@@ -1,4 +1,6 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv').config();
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
@@ -41,5 +43,11 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// mongo connection
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
+mongoose.Promise = global.Promise; 
+let db = mongoose.connection; 
+db.on("error", console.error.bind(console, "Mongodb connection error"));
 
 module.exports = app;

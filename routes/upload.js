@@ -13,6 +13,7 @@ const {
   uploadStreamToBlockBlob
 } = require('@azure/storage-blob');
 
+const Profile = require('../models/profile'); 
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
@@ -41,6 +42,21 @@ const getBlobName = originalName => {
 };
 
 router.post('/', uploadStrategy, async (req, res) => {
+    // WHERE THE FORM DATA COMES IN
+    const name = req.body.name; 
+    const codename = req.body.codename;
+    const displayname = req.body.displayname;
+
+    try { 
+        const profile = await new Profile({
+            name: name, 
+            codename: codename,
+            displayname: displayname
+        }).save(); 
+    }
+    catch(err) { 
+        console.log('Something went terribly wrong');
+    }
 
   const aborter = Aborter.timeout(30 * ONE_MINUTE);
   const blobName = getBlobName(req.file.originalname);
