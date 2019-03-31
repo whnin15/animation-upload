@@ -2,7 +2,7 @@
 
 <h2>Upload photos</h2>
 <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data">
-  <h2>Select looking file to upload:</h2>
+  <h2>Select an image to upload:</h2>
   <div class="upload-container"><input id="file-picker" type="file" name="image"></div>
   <div><input type="submit" value="Upload Image"></div>
 </form>
@@ -19,20 +19,15 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-
     const message = document.getElementById('message');
     const picker = document.getElementById('file-picker');
-
     document.getElementById('upload-form').addEventListener('submit', (e) => {
-
       message.innerText = '';
-
       if(!picker.files.length) {
         message.innerText = 'Please select an image to upload.';
         e.preventDefault();
         return false;
       }
     });
-
   });
 </script>
