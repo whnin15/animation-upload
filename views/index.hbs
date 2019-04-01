@@ -3,7 +3,7 @@
 <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data">
   <tbody>
     <tr>
-      <td>Your Name (required):  </td>
+      <td>Your Name (required): </td>
       <td><div class="upload-container"><input id="name" type="text" name="name" required></div></td>
     </tr>
     <tr>
@@ -18,7 +18,7 @@
       <td>Number of people attending (including the participant) (required): </td>
       <td>
         <div class="upload-container">
-          <select name="peopleattending" required>
+          <select name="peopleattending" required>      
             <option value=0>0</option>      
             <option value=1 selected=1>1</option>
             <option value=2>2</option>
@@ -29,7 +29,7 @@
       </td>
     </tr>
     <tr>
-      <td> Your animation (.lgp): </td>
+      <td> Your animation (.lgp) (required): </td>
       <td> <div class="upload-container"><input id="file-picker" type="file" name="image"></div> </td>
     </tr>
   </tboday>
@@ -47,6 +47,12 @@
     document.getElementById('upload-form').addEventListener('submit', (e) => {
 
       message.innerText = '';
+
+      if(!picker.files.length) {
+        message.innerText = 'Select the looking glass file (.lgp) to upload.';
+        e.preventDefault();
+        return false;
+      }
     });
 
   });
