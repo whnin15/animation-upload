@@ -46,12 +46,14 @@ router.post('/', uploadStrategy, async (req, res) => {
     const name = req.body.name; 
     const codename = req.body.codename;
     const displayname = req.body.displayname;
+    const peopleattending = req.body.peopleattending;
 
     try { 
         const profile = await new Profile({
             name: name, 
             codename: codename,
-            displayname: displayname
+            displayname: displayname,
+            peopleattending: peopleattending
         }).save(); 
     }
     catch(err) { 
