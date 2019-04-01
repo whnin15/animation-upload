@@ -4,21 +4,21 @@
   <tbody>
     <tr>
       <td>Your Name: </td>
-      <td><div class="upload-container"><input id="name" type="text" name="name"></div></td>
+      <td><div class="upload-container"><input id="name" type="text" name="name" required></div></td>
     </tr>
     <tr>
       <td>CodeName (on the blue tape of your USB): </td>
-      <td><div class="upload-container"><input id="codename" type="text" name="codename"></div></td>
+      <td><div class="upload-container"><input id="codename" type="text" name="codename" required></div></td>
     </tr>
     <tr>
-      <td>Name you want me to show on screen: </td>
-      <td><div class="upload-container"><input id="displayname" type="text" name="displayname"></div></td>
+      <td>Name you want me to show on screen: (Default will be your name.)</td>
+      <td><div class="upload-container"><input id="displayname" type="text" name="displayname" ></div></td>
     </tr>
     <tr>
-      <td>Number of people attending (including the participant) </td>
+      <td>Number of people attending (including the participant): </td>
       <td>
         <div class="upload-container">
-          <select name="peopleattending">      
+          <select name="peopleattending" required>      
             <option value=0>0</option>      
             <option value=1 selected=1>1</option>
             <option value=2>2</option>
@@ -47,12 +47,6 @@
     document.getElementById('upload-form').addEventListener('submit', (e) => {
 
       message.innerText = '';
-
-      if(!picker.files.length) {
-        message.innerText = 'Select the looking glass file (.lgp) to upload.';
-        e.preventDefault();
-        return false;
-      }
     });
 
   });
