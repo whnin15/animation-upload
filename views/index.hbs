@@ -2,38 +2,46 @@
 
 <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data">
   <tbody>
-    <tr>
-      <td>Your Name (required): </td>
-      <td><div class="upload-container"><input id="name" type="text" name="name" required></div></td>
-    </tr>
-    <tr>
-      <td>CodeName (on the blue tape of your USB) (required): </td>
-      <td><div class="upload-container"><input id="codename" type="text" name="codename" required></div></td>
-    </tr>
-    <tr>
-      <td>Name you want me to show on screen: (Default will be your name.)</td>
-      <td><div class="upload-container"><input id="displayname" type="text" name="displayname" ></div></td>
-    </tr>
-    <tr>
-      <td>Number of people attending (including the participant) (required): </td>
-      <td>
-        <div class="upload-container">
-          <select name="peopleattending" required>      
-            <option value=0>0</option>      
-            <option value=1 selected=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-          </select>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td> Your animation (.lgp) (required): </td>
-      <td> <div class="upload-container"><input id="file-picker" type="file" name="image"></div> </td>
-    </tr>
-  </tboday>
-  <div><input type="submit" value="Upload File"></div>
+  <tr>
+    <tbody>
+      <tr>
+        <td>Your Name (required): </td>
+        <td><div class="upload-container"><input id="name" type="text" name="name" required></div></td>
+      </tr>
+      <tr>
+        <td>CodeName (on the blue tape of your USB) (required): </td>
+        <td><div class="upload-container"><input id="codename" type="text" name="codename" required></div></td>
+      </tr>
+      <tr>
+        <td>Name you want me to show on screen: (Default will be your name.)</td>
+        <td><div class="upload-container"><input id="displayname" type="text" name="displayname" ></div></td>
+      </tr>
+      <tr>
+        <td>Number of people attending (including the participant) (required): </td>
+        <td>
+          <div class="upload-container">
+            <select name="peopleattending" required>      
+              <option value=0>0</option>      
+              <option value=1 selected=1>1</option>
+              <option value=2>2</option>
+              <option value=3>3</option>
+              <option value=4>4</option>
+            </select>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td> Your animation (.lgp) (required): </td>
+        <td> <div class="upload-container"><input id="file-picker" type="file" name="image"></div> </td>
+      </tr>
+    </tboday>
+    <div><input type="submit" value="Upload File"></div>
+  </tr>
+  <tr>
+    <video controls>
+      <source src="animation.mp4" type="video/mp4">
+    </video>
+  </tr>
 </form>
 
 <p id="message">{{message}}</p>
