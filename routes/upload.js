@@ -34,12 +34,12 @@ const serviceURL = new ServiceURL(
   pipeline
 );
 
-const getBlobName = originalName => {
-  // Use a random number to generate a unique file name, 
-  // removing "0." from the start of the string.
-  const identifier = Math.random().toString().replace(/0\./, ''); 
-  return `${identifier}-${originalName}`;
-};
+// const getBlobName = originalName => {
+//   // Use a random number to generate a unique file name, 
+//   // removing "0." from the start of the string.
+//   const identifier = Math.random().toString().replace(/0\./, ''); 
+//   return `${identifier}-${originalName}`;
+// };
 
 router.post('/', uploadStrategy, async (req, res) => {
     // WHERE THE FORM DATA COMES IN
@@ -47,6 +47,13 @@ router.post('/', uploadStrategy, async (req, res) => {
     const codename = req.body.codename;
     const displayname = req.body.displayname;
     const peopleattending = req.body.peopleattending;
+
+    const getBlobName = originalName => {
+      // Use a random number to generate a unique file name, 
+      // removing "0." from the start of the string.
+      // const identifier = Math.random().toString().replace(/0\./, ''); 
+      return `${codename}-${originalName}`;
+    };
 
     try { 
         const profile = await new Profile({
